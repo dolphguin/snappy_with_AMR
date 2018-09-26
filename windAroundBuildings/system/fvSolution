@@ -16,6 +16,16 @@ FoamFile
 
 solvers
 {
+    "pcorr.*"
+    {
+        solver          GAMG;
+        smoother        GaussSeidel;
+        cacheAgglomeration no;
+
+        tolerance        0.02;
+        relTol           0;
+    }
+
     p
     {
         solver          GAMG;

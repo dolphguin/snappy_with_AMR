@@ -16,6 +16,26 @@ runApplication surfaceFeatures
 runApplication blockMesh
 runApplication snappyHexMesh -overwrite
 
+# NOTE: Necessary changes to allow proper use of dynamicRefineFvMesh!
+# ------------------------------------------------------------------------------
+    FILE_LIST=( "cellLevel" "pointLevel" )
+    ORIGIN="0"
+    DESTINATION="constant/polyMesh"
+
+    for FILE in "${FILE_LIST[@]}"; do
+
+        cp $ORIGIN/$FILE $DESTINATION/$FILE
+
+        foamDictionary -entry FoamFile.class -set "labelList" $DESTINATION/$FILE
+        foamDictionary -entry FoamFile.location -set "\"constant/polyMesh\"" $DESTINATION/$FILE
+        foamDictionary -entry dimensions -remove $DESTINATION/$FILE
+        foamDictionary -entry boundaryField -remove $DESTINATION/$FILE
+
+        sed -i "s.internalField.//internalField.g" $DESTINATION/$FILE
+
+    done
+# ------------------------------------------------------------------------------
+
 runApplication $(getApplication)
 
 #------------------------------------------------------------------------------
