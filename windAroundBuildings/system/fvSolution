@@ -31,6 +31,18 @@ solvers
         tolerance       1e-6;
         relTol          0.1;
     }
+
+    pFinal
+    {
+        $p;
+        relTol          0;
+    }
+
+    "(U|sigma|k|omega|epsilon)Final"
+    {
+        $U;
+        relTol          0;
+    }
 }
 
 SIMPLE
@@ -47,6 +59,17 @@ SIMPLE
 
 }
 
+PIMPLE
+{
+    momentumPredictor   off;
+    nOuterCorrectors    3;
+    nCorrectors         3;
+    nNonOrthogonalCorrectors 0;
+    pRefCell            0;
+    pRefValue           0;
+    turbOnFinalIterOnly no;
+}
+
 potentialFlow
 {
     nNonOrthogonalCorrectors 10;
@@ -56,13 +79,12 @@ relaxationFactors
 {
     fields
     {
-        p               0.3;
+        p               1; // 0.3;
     }
     equations
     {
-        U               0.7;
-        "(k|omega|epsilon).*" 0.7;
-    }
+        U               1; // 0.7;
+        "(k|omega|epsilon).*" 1; // 0.7;
 }
 
 // ************************************************************************* //
