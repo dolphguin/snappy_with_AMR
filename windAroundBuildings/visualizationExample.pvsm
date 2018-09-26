@@ -4456,7 +4456,7 @@
     </Proxy>
     <Proxy group="sources" type="PVFoamReader" id="4051" servers="1">
       <Property name="FileName" id="4051.FileName" number_of_elements="1">
-        <Element index="0" value="$PWD/windAroundBuildings.OpenFOAM"/>
+        <Element index="0" value="windAroundBuildings.OpenFOAM"/>
         <Domain name="files" id="4051.FileName.files"/>
       </Property>
       <Property name="LagrangianFieldArrayStatus" id="4051.LagrangianFieldArrayStatus"/>
