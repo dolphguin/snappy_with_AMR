@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+
+# WARNING: Ensure that "/bin/bash" is used instead of "/bin/sh"
+
+WM_PROJECT_DIR=/opt/openfoam6
+source $WM_PROJECT_DIR/etc/bashrc
+echo "version: " && foamVersion
+
 cd ${0%/*} || exit 1    # run from this directory
 
 # Source tutorial run functions
