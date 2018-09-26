@@ -1,2 +1,2 @@
 # snappy_with_AMR
-Modification of the OpenFOAM's tutorial case "windAroundBuildings" that makes use of dynamic mesh refinement on the mesh that was created by snappyHexMesh
+Modification of the [OpenFOAM](https://openfoam.org/)'s tutorial case [windAroundBuildings](https://github.com/OpenFOAM/OpenFOAM-6/tree/master/tutorials/incompressible/simpleFoam/windAroundBuildings) that makes use of dynamic mesh refinement on the mesh that was created by snappyHexMesh. In addition, the case was modified by run with the transient solver [pimpleFoam](https://github.com/OpenFOAM/OpenFOAM-6/blob/master/applications/solvers/incompressible/pimpleFoam/pimpleFoam.C) by default.
